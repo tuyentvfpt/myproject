@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <math.h>
+#include<stdlib.h>
 
 void swap(int *x, int *y){
     //swap
@@ -25,9 +27,20 @@ void bubbleSort(int n, int *ptr)//truyen 1 mang vao cho ham thi:
    
    
 }
-void insertionSort(int arr[])
+void insertionSort(int n, int *ptr)
 {
     //sap xep mang => trien khai code ve nha
+    int i, j, key;
+    for(i=1; i<n; i++){
+    	key = ptr[i];
+    	j = i -1;
+    	
+    	while (j >= 0 && ptr[j] > key){
+    		ptr[j+1] = ptr[j];
+    		j = j -1;
+		}
+		ptr[j+1]=key;
+	}
 }
 
 void displayResult(int n, int *ptr){
@@ -43,8 +56,10 @@ void displayResult(int n, int *ptr){
 int main(){
     int n = 5;
     int arr[] = {12,9,3,6,5};
-    bubbleSort(n,arr);//Goi ham va truyen dc cua mang vao cho ham
+    insertionSort(n,arr);
     displayResult(n,arr);
-   
+    printf("\n");
+    bubbleSort(n,arr);
+    displayResult(n,arr);
     return 0;
 }
