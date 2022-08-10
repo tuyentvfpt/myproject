@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+void swap(int *x, int *y){
+    //swap
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+   
+}
+void bubbleSort(int n, int *ptr)//truyen 1 mang vao cho ham thi:
+                            //chi co dia chi cua mang dc truyen vao.
+{
+    int i,j;
+    for(i =0; i< n; i++){
+        for(j= i+1; j< n; j++){
+            if(*(ptr+j)<*(ptr+i)){
+                swap(&ptr[j],&ptr[i]);
+                
+            }
+        }
+    }
+   
+   
+   
+   
+}
+void insertionSort(int arr[])
+{
+    //sap xep mang => trien khai code ve nha
+}
+
+void displayResult(int n, int *ptr){
+    //printf result
+    int i;
+    for(i = 0; i< n ; i++)
+    {
+       printf("%d " , ptr[i]);
+    }
+   
+}
+
+int main(){
+    int n = 5;
+    int arr[] = {12,9,3,6,5};
+    bubbleSort(n,arr);//Goi ham va truyen dc cua mang vao cho ham
+    displayResult(n,arr);
+   
+    return 0;
+}
